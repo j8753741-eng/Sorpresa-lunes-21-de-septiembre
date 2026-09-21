@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#f5efe7">
+
+<title>Hoy te celebro por dos</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
+      rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(150,30,55,.08), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(150,30,55,.06), transparent 35%),
+        #f5efe7;
+    color:#2b2523;
+    font-family:'DM Sans', sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   FONDO
+========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.line{
+    position:absolute;
+    width:1px;
+    height:120%;
+    background:rgba(91,39,46,.07);
+    transform:rotate(18deg);
+}
+
+.line.one{
+    left:13%;
+    top:-10%;
+}
+
+.line.two{
+    right:18%;
+    top:-15%;
+    transform:rotate(-16deg);
+}
+
+.circle{
+    position:absolute;
+    border:1px solid rgba(91,39,46,.09);
+    border-radius:50%;
+}
+
+.circle.one{
+    width:260px;
+    height:260px;
+    left:-130px;
+    top:15%;
+}
+
+.circle.two{
+    width:350px;
+    height:350px;
+    right:-190px;
+    bottom:5%;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+main{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:720px;
+    margin:auto;
+    padding:30px 20px 70px;
+}
+
+/* =========================
+   MINI CABECERA
+========================= */
+
+.top{
+    text-align:center;
+    padding-top:18px;
+    margin-bottom:35px;
+}
+
+.top small{
+    display:block;
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#79545a;
+    margin-bottom:13px;
+}
+
+.top .symbol{
+    font-family:'Cormorant Garamond', serif;
+    font-size:27px;
+    color:#8e3548;
+}
+
+/* =========================
+   TARJETA PRINCIPAL
+========================= */
+
+.card{
+    position:relative;
+    background:rgba(255,252,247,.84);
+    border:1px solid rgba(102,58,63,.15);
+    box-shadow:
+        0 25px 70px rgba(57,34,31,.12),
+        0 3px 12px rgba(57,34,31,.05);
+    padding:42px 27px 45px;
+    overflow:hidden;
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border:1px solid rgba(128,67,76,.11);
+    pointer-events:none;
+}
+
+.card:after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(141,52,71,.035);
+    top:-90px;
+    right:-80px;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.eyebrow{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#8b4c58;
+    margin-bottom:20px;
+}
+
+h1{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(42px,11vw,76px);
+    line-height:.9;
+    font-weight:500;
+    color:#382b2b;
+}
+
+h1 span{
+    display:block;
+    font-style:italic;
+    color:#8e3548;
+    font-size:.68em;
+    margin-top:8px;
+}
+
+/* =========================
+   FECHAS
+========================= */
+
+.dates{
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    margin:30px auto 35px;
+}
+
+.date{
+    text-align:center;
+}
+
+.date strong{
+    display:block;
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    font-weight:600;
+    color:#7d3042;
+    line-height:1;
+}
+
+.date small{
+    display:block;
+    margin-top:5px;
+    font-size:9px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#76615e;
+}
+
+.divider{
+    width:1px;
+    height:45px;
+    background:rgba(91,39,46,.2);
+}
+
+/* =========================
+   FRASE
+========================= */
+
+.intro{
+    position:relative;
+    z-index:2;
+    max-width:530px;
+    margin:0 auto;
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    font-size:20px;
+    line-height:1.65;
+    color:#463737;
+}
+
+.intro em{
+    color:#8e3548;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+.open-area{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    margin-top:38px;
+}
+
+.open-button{
+    appearance:none;
+    border:1px solid #8c4b57;
+    background:transparent;
+    color:#70303f;
+    padding:15px 27px;
+    font-family:'DM Sans',sans-serif;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:.35s ease;
+}
+
+.open-button:hover{
+    background:#783344;
+    color:#fffaf5;
+    transform:translateY(-2px);
+}
+
+.open-button:active{
+    transform:scale(.97);
+}
+
+.hint{
+    margin-top:12px;
+    font-size:10px;
+    color:#8c7772;
+    letter-spacing:.4px;
+}
+
+/* =========================
+   MENSAJE OCULTO
+========================= */
+
+.secret{
+    position:relative;
+    z-index:2;
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition:
+        max-height 1s ease,
+        opacity .8s ease,
+        margin-top 1s ease;
+}
+
+.secret.show{
+    max-height:1000px;
+    opacity:1;
+    margin-top:40px;
+}
+
+.secret-inner{
+    border-top:1px solid rgba(106,56,64,.15);
+    padding-top:34px;
+}
+
+.secret-title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:31px;
+    color:#7d3042;
+    margin-bottom:25px;
+}
+
+.letter{
+    font-family:'Cormorant Garamond',serif;
+    font-size:21px;
+    line-height:1.65;
+    color:#403333;
+}
+
+.letter p{
+    margin-bottom:18px;
+}
+
+.letter .highlight{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    color:#7d3042;
+    margin:30px 0;
+    font-size:22px;
+}
+
+.signature{
+    text-align:center;
+    margin-top:32px;
+    padding-top:25px;
+    border-top:1px solid rgba(106,56,64,.12);
+}
+
+.signature .for{
+    font-family:'Cormorant Garamond',serif;
+    font-size:15px;
+    color:#8b706c;
+    margin-bottom:8px;
+}
+
+.signature .name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    letter-spacing:1px;
+    color:#743143;
+}
+
+/* =========================
+   SEGUNDO REVEAL
+========================= */
+
+.final-reveal{
+    text-align:center;
+    margin-top:30px;
+}
+
+.final-button{
+    border:0;
+    background:none;
+    font-family:'DM Sans',sans-serif;
+    color:#8a6870;
+    font-size:10px;
+    letter-spacing:1.5px;
+    cursor:pointer;
+    padding:10px;
+}
+
+.final-message{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:.8s ease;
+}
+
+.final-message.show{
+    max-height:300px;
+    opacity:1;
+    margin-top:10px;
+}
+
+.final-message p{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.7;
+    color:#713143;
+}
+
+/* =========================
+   PIE
+========================= */
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+}
+
+.footer .heart{
+    color:#8e3548;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.footer p{
+    font-size:9px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#927c77;
+}
+
+/* =========================
+   CORAZONES
+========================= */
+
+.heart-float{
+    position:fixed;
+    pointer-events:none;
+    z-index:20;
+    color:#963c50;
+    font-size:14px;
+    animation:floatUp 1.8s ease forwards;
+}
+
+@keyframes floatUp{
+    0%{
+        opacity:0;
+        transform:translateY(20px) scale(.6) rotate(0deg);
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:translateY(-150px) scale(1.2) rotate(15deg);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:480px){
+
+    main{
+        padding:20px 14px 55px;
+    }
+
+    .card{
+        padding:34px 21px 38px;
+    }
+
+    .dates{
+        gap:12px;
+    }
+
+    .date strong{
+        font-size:34px;
+    }
+
+    .intro{
+        font-size:18px;
+    }
+
+    .letter{
+        font-size:19px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background">
+    <div class="line one"></div>
+    <div class="line two"></div>
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+</div>
+
+<main>
+
+    <div class="top">
+        <small>Una pequeña sorpresa para ti</small>
+        <div class="symbol">♡</div>
+    </div>
+
+    <section class="card">
+
+        <div class="eyebrow">
+            Septiembre · 2026
+        </div>
+
+        <h1>
+            Hoy te celebro
+            <span>por dos</span>
+        </h1>
+
+        <div class="dates">
+
+            <div class="date">
+                <strong>11</strong>
+                <small>meses de nosotros</small>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="date">
+                <strong>♡</strong>
+                <small>amor y amistad</small>
+            </div>
+
+        </div>
+
+        <div class="intro">
+            Hay fechas que pasan en el calendario,
+            y hay fechas que se quedan guardadas
+            <em>en el corazón.</em>
+        </div>
+
+        <div class="open-area">
+
+            <button class="open-button" onclick="openLetter()">
+                Abrir mi notita
+            </button>
+
+            <div class="hint">
+                Solo quiero dejarte unas palabras...
+            </div>
+
+        </div>
+
+
+        <div class="secret" id="secret">
+
+            <div class="secret-inner">
+
+                <div class="secret-title">
+                    Para ti, mi amor
+                </div>
+
+                <div class="letter">
+
+                    <p>
+                        Mi amor, sé que nuestro aniversario de once meses
+                        ya pasó hace unos días y que Amor y Amistad también
+                        pasó este fin de semana.
+                    </p>
+
+                    <p>
+                        Pero hubo algo que no cambió con ninguna fecha:
+                        <strong>mis ganas de celebrarte.</strong>
+                    </p>
+
+                    <p>
+                        No pudimos vernos ese fin de semana, no tuvimos
+                        clases y simplemente no se dio el momento.
+                        Y aunque el calendario siguió avanzando,
+                        yo seguía teniendo pendiente algo que quería
+                        hacer por ti.
+                    </p>
+
+                    <p class="highlight">
+                        Porque algunas cosas no pierden su significado
+                        solo porque lleguen unos días después.
+                    </p>
+
+                    <p>
+                        Hoy, por fin, puedo tenerte frente a mí y
+                        entregarte este pequeño detalle que preparé
+                        pensando en nosotros.
+                    </p>
+
+                    <p>
+                        Quise unir nuestras dos celebraciones en una sola:
+                        nuestros <strong>once meses</strong> y ese día
+                        en el que se celebra el amor y la amistad.
+                    </p>
+
+                    <p>
+                        Y creo que tiene sentido hacerlo así...
+                        porque tú para mí eres las dos cosas:
+                        eres la persona que amo profundamente
+                        y también eres esa persona con la que quiero
+                        compartir mis días, mis risas, mis locuras
+                        y cada pequeña parte de mi vida.
+                    </p>
+
+                    <p>
+                        Así que hoy no importa que hayan pasado cuatro
+                        días desde nuestros once meses ni dos desde
+                        Amor y Amistad.
+                    </p>
+
+                    <p class="highlight">
+                        Lo importante es que hoy puedo celebrarte.
+                    </p>
+
+                    <p>
+                        Y si algo quiero que recuerdes de este pequeño
+                        detalle, es que fue escogido pensando únicamente
+                        en ti, en nosotros y en esa sonrisa tuya que
+                        todavía consigue poner mi corazón completamente
+                        nervioso.
+                    </p>
+
+                    <p>
+                        Gracias por estos once meses, mi niña.
+                        Gracias por existir en mi vida de una manera
+                        tan bonita y por convertir tantos días normales
+                        en recuerdos que quiero guardar para siempre.
+                    </p>
+
+                    <p>
+                        Te amo muchísimo, Valeria.
+                        Y aunque esto sea pequeño, lleva conmigo
+                        una intención enorme:
+                        <strong>hacerte sentir amada.</strong>
+                    </p>
+
+                </div>
+
+                <div class="signature">
+
+                    <div class="for">
+                        Para la persona que hoy quiero celebrar
+                    </div>
+
+                    <div class="name">
+                        VALERIA PETRO VILLAZÓN
+                    </div>
+
+                </div>
+
+                <div class="final-reveal">
+
+                    <button class="final-button"
+                            onclick="revealFinal()">
+                        Hay una última cosita...
+                    </button>
+
+                    <div class="final-message" id="finalMessage">
+
+                        <p>
+                            “No llegó exactamente el día que decía
+                            el calendario...
+                            llegó el día en que por fin pude dártelo.”
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="footer">
+
+        <div class="heart">♡</div>
+
+        <p>
+            11 meses · nosotros · siempre
+        </p>
+
+    </div>
+
+</main>
+
+
+<script>
+
+function createHeart(x, y){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart-float";
+    heart.innerHTML = "♥";
+
+    heart.style.left = x + "px";
+    heart.style.top = y + "px";
+
+    heart.style.transform =
+        "rotate(" + (Math.random()*30-15) + "deg)";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 1900);
+}
+
+
+function burst(){
+
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight * .55;
+
+    for(let i = 0; i < 14; i++){
+
+        setTimeout(() => {
+
+            const x =
+                centerX + (Math.random()*180 - 90);
+
+            const y =
+                centerY + (Math.random()*50 - 25);
+
+            createHeart(x,y);
+
+        }, i * 70);
+
+    }
+
+}
+
+
+function openLetter(){
+
+    const secret =
+        document.getElementById("secret");
+
+    secret.classList.add("show");
+
+    burst();
+
+    setTimeout(() => {
+
+        secret.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    },350);
+
+}
+
+
+function revealFinal(){
+
+    const finalMessage =
+        document.getElementById("finalMessage");
+
+    finalMessage.classList.add("show");
+
+    burst();
+
+}
+
+</script>
+
+</body>
+  </html>
